@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+
+<script type="text/javascript">
+	
+	var mapContainer = document.getElementById("map"); //-- 지도를 표시할 div
+
+	var mapOption =
+	{
+		center : new daum.maps.LatLng(37.556570, 126.919544) //-- 지도의 중심좌표
+		,
+		level : 3
+	//-- 지도의 확대 축소 레벨
+	};
+
+	// 지도를 표시할 div 와 지도 옵션을 활용하여 지도 생성
+	// var map = new daum.maps.Map();
+	var map = new daum.maps.Map(mapContainer, mapOption);
+</script>
+
+</head>
+<body>
+
+	<div></div>
+
+</body>
+</html>

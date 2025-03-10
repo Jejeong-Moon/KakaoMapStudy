@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest004.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");
+		options = {
+				
+			center : new kakao.maps.LatLng(37.556570, 126.919533)
+			, level : 3
+				
+		};
+		
+		map = new kakao.maps.Map(container,options);
+		
+	}
+	
+	function setCenter()
+	{
+		//alert("확인");
+		
+		// 중심을 이동할 위도 경도 위치 생성(라인프렌즈 홍대)
+		var moveLatLng = new kakao.maps.LatLng(37.555570, 126.921622);
+		// 위도 경도 값을 객체화 하여 저장한 것
+		
+		
+		// 지도 중심 이동
+		
+		map.setCenter(moveLatLng);
+		
+		//-->> 이와 같은 코드이다
+		/*
+		map.setCenter(new kakao.maps.LatLng(37.555570, 126.921622);
+		*/
+		
+	}
+	
+	function panTo1()
+	{
+		// 중심을 이동할 위도 경도 위치 생성
+		var moveLatLng = new kakao.maps.LatLng(37.555952, 126.922015)
+		
+		// 지도 중심을 부드럽게 이동
+		//-- 지도의 중심을 이동하는 과정에서 이동할 지점이 현재 지도에서 표현되는 범위 밖에 있다면
+		//	 즉, 이동 거리가 지도 화면보다 크다면 부드러운 효과 없이 이동하게 된다.
+		map.panTo(moveLatLng);
+		
+	}
+	
+	// 중심 좌표2 
+	function panTo2()
+	{
+		map.panTo(new kakao.maps.LatLng(37.552164, 126.922338));
+		
+	}
+	
+	function panTo3()
+	{
+		map.panTo(new kakao.maps.LatLng(
+				37.531873, 126.914174));
+		
+	}
+	
+</script>
+
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 APP Key -->
+<!-- 083a2bd9d2504e9dde582bbbb8ce730b -->
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556570, 126.919533 -->
+
+<!-- ○ 라인프렌즈 홍대 -->
+<!-- 37.555570, 126.921622 -->
+
+<!-- ○ 메가박스 홍대 -->
+<!-- 37.555952, 126.922015 -->
+
+<div>
+	<h1>Kakao Map 중심 좌표 이동</h1>
+	<ul>
+		<li>지도 객체의 메소드를 통해 지도를 원하는 좌표로 이동시키는 것이 가능하다</li>
+		<li>표시되고 있는 영역을 벗어나지 않는 거리에서는
+		애니메이션 효과처럼 지도를 부드럽게 이동시킬 수도 있다.</li>
+	</ul>
+	<hr />
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+<p>
+	<button type="button" class="btn" onclick="setCenter()">중심좌표 이동</button>
+	<button type="button" class="btn" onclick="panTo1()">중심좌표 부드럽게 이동</button>
+	<button type="button" class="btn" onclick="panTo2()">중심좌표 부드럽게 이동</button>
+	<button type="button" class="btn" onclick="panTo3()">중심좌표 부드럽게 이동</button>
+</p>
+
+</body>
+</html>

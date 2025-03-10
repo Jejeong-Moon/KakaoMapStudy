@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+<script type="text/javascript">
+
+	function initialize()
+	{
+		var container = document.getElementById("map");
+		options =
+		{
+			center: new kakao.maps.LatLng(37.556570, 126.919533)
+			,level: 3	
+		} ;
+		
+		map = new kakao.maps.Map(container,options);
+		
+		// 지도 타입 컨트롤 (지도 or 스카이뷰) 생성
+		mapTypeControl = new kakao.maps.MapTypeControl();
+
+		// ※ 지도 타입에 대한 컨트롤을 생성만 하면 되는 것이 아니라
+		//		생성된 해당 컨트롤을 추가해야 지도 위에 표시된다.
+		
+		// 지도 타입 컨트롤을 지도 위에 추가
+		// 『kakao.maps.ControlPsition』은 컨트롤이 표시될 위치를 정의하며,
+		// 『TOPRIGHT』는 오른쪽 위를 위미한다.
+		map.addControl(mapTypeControl,kakao.maps.ControlPosition.TOPLEFT);
+		// - 『TOP』		: 위 가운데를 위미한다. 아래로 쌓인다.
+		// - 『TOPLEFT』	: 왼쪽 위를 의미한다. 오른쪽으로 쌓인다. 
+		// - 『TOPRIGHT』	: 오른쪽 위를 의미한다. 왼쪽으로 쌓인다.
+		// - 『LEFT』		: 왼쪽 위를 의미한다. 아래로 쌓인다.
+		// 					  (주의, 왼쪽 중앙을 의미하는 것이 아니다.)
+		// - 『RIGHT』		: 오른쪽 위를 의마한다. 아래로 쌓인다.
+		// 					  (주의, 왼쪽 중앙을 의미하는 것이 아니다.)
+		// - 『BOTTOMLEFT』	: 왼쪽 아래를 의미한다. 오른쪽으로 쌓인다.
+		// - 『BOTTM』		: 아래쪽 가운데를 의미한다. 위로 쌓인다.
+		// - 『BOTTOMRIGHT』: 오른쪽 아래를 의미한다. 왼쪽으로 쌓인다.
+		
+		
+		// 줌 컨트롤(확대 축소 제어 컨트롤)
+		
+		zoomControl = new kakao.maps.ZoomControl();
+		
+		// 줌 컨트롤을 지도 위에 추가
+		map.addControl(zoomControl,kakao.maps.ControlPosition.LEFT);
+		
+		
+	}
+
+</script>
+</head>
+<body onload="initialize()">
+
+<div>
+	<h1>Kakao Map 지도 정보 얻어내기</h1>
+	<hr />
+</div>
+
+<!-- ○ 발급 받은 APP Key -->
+<!-- 083a2bd9d2504e9dde582bbbb8ce730b -->
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556570, 126.919533 -->
+
+<!-- ○ 라인프렌즈 홍대 -->
+<!-- 37.555570, 126.921622 -->
+
+<!-- ○ 메가박스 홍대 -->
+<!-- 37.555952, 126.922015 -->
+
+<!-- ○ 국회의사당 -->
+<!-- 37.531873, 126.914174 -->
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br />
+
+<p>
+	<button type="button" class="btn" onclick="getInfo()">지도 정보 확인</button>
+	<br /><br />
+	
+	<span id="mapType"></span>
+	
+</p>
+
+
+</body>
+</html>

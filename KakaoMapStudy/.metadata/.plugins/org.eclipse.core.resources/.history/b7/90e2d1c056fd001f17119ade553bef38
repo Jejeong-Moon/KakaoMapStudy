@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+
+<script type="text/javascript">
+
+	// 페이지 요청시 호출
+	function initialize()
+	{
+		var container = document.getElementById("map");
+		
+		options = 
+		{
+			center: new kakao.maps.LatLng(37.556570, 126.919533)
+			,level: 3
+				
+		};
+		
+		map = new kakao.maps.Map(container,options);
+		
+		// 지도 레벨 확인 함수 호출
+		displayLevel();
+		
+	}
+	
+	// 지도 레벨 확인 함수
+	function displayLevel()
+	{
+		alert("확인");
+		
+		
+	}
+	
+
+</script>
+
+</head>
+<body onload="initialize()">
+
+<div>
+	<h1>kakao Map 레벨 전환</h1>
+	<hr />
+</div>
+
+<!-- 지도를 그렬낼 div 공간 확보 -->
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br />
+
+</body>
+</html>

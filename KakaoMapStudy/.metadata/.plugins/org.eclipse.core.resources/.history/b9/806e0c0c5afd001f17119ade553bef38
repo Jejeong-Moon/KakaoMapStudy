@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+<script type="text/javascript">
+	
+	function initialize()
+	{
+		var container = document.getElementById("map");
+		options =
+		{
+			center: new kakao.maps.LatLng(37.556570, 126.919533)
+			,level: 3	
+		} ;
+		
+		map = new kakao.maps.Map(container,options);
+	}
+	
+	function getInfo()
+	{
+		
+	}
+
+
+</script>
+
+
+</head>
+<body onload="initialize()">
+
+<div>
+	<h1>Kakao Map 지도 정보 얻어내기</h1>
+	<hr />
+</div>
+
+<!-- ○ 발급 받은 APP Key -->
+<!-- 083a2bd9d2504e9dde582bbbb8ce730b -->
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556570, 126.919533 -->
+
+<!-- ○ 라인프렌즈 홍대 -->
+<!-- 37.555570, 126.921622 -->
+
+<!-- ○ 메가박스 홍대 -->
+<!-- 37.555952, 126.922015 -->
+
+<!-- ○ 국회의사당 -->
+<!-- 37.531873, 126.914174 -->
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br />
+
+<p>
+	<button type="button" class="btn" onclick="getInfo()">지도 정보 확인</button>
+	<br /><br />
+	
+	<span id="mapType"></span>
+	
+</p>
+
+
+</body>
+</html>
