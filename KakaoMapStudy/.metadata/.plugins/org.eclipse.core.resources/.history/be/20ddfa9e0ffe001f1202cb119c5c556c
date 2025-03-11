@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");
+		options =
+		{
+			center: new kakao.maps.LatLng(37.556570, 126.919533)	
+			, level: 3		
+		};
+		
+	
+		map = new kakao.maps.Map(container,options);
+		
+	};
+	
+	// 버튼 클릭에 따라 지도 이동 기능을 막거나 풀고자 하는 경우
+	// 『map.setZoomable()』함수를 사용한다.
+	function setZoomable(dragable)
+	{
+		// 확인
+		//alert(dragable);
+		//--==>> true / false
+		
+		// 마우스 드래그로 지도 이동 가능여부 설정
+		map.setDraggable(dragable);
+		
+		
+	}
+
+
+</script>
+</head>
+<body onload="initialize()">
+
+<div>
+	<h1>Kakao Map 드래그 제한 / 활용</h1>
+	<hr />
+</div>
+
+<!-- 지도를 그려낼 div 공간 제작 -->
+<!-- ○ 발급 받은 APP Key -->
+<!-- 083a2bd9d2504e9dde582bbbb8ce730b -->
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556570, 126.919533 -->
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+<div>
+	<p>
+		 <button type="button" class="btn" onclick="setZoomable(false)">줌 확대 축소 제한(불가)</button>
+		 <button type="button" class="btn" onclick="setZoomable(true)">줌 확대 축소 허용(가능)</button>
+	
+	</p>
+</div>
+
+
+</body>
+</html>

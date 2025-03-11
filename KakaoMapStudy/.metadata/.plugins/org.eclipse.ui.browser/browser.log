@@ -1,0 +1,10 @@
+
+3월 11, 2025 09:13:29.26 NEW SESSION
+3월 11, 2025 09:13:29.26 Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 11, 2025 09:19:25.56 Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 11, 2025 09:29:11.00 Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 11, 2025 09:36:34.40 Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 11, 2025 11:43:56.07 [8540:8864:0311/114356.071:ERROR:new_tab_page_handler.cc(1306)] NewTabPage loaded into a non-browser-tab context
+3월 11, 2025 11:43:56.67 [8540:8864:0311/114356.679:ERROR:new_tab_page_handler.cc(1306)] NewTabPage loaded into a non-browser-tab context
+3월 11, 2025 12:15:43.59 [8540:8864:0311/121543.599:ERROR:interface_endpoint_client.cc(725)] Message 0 rejected by interface blink.mojom.WidgetHost
+3월 11, 2025 12:30:49.42 [8540:8864:0311/123049.429:ERROR:interface_endpoint_client.cc(725)] Message 0 rejected by interface blink.mojom.WidgetHost

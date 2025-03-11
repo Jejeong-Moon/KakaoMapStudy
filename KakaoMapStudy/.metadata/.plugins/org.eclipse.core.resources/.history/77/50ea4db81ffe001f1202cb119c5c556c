@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+<script type="text/javascript">
+
+	
+	function initialize()
+	{
+		markers [];
+		container = document.getElementById("map");
+		options =
+			{
+				center: new kakao.maps.LatLng(37.556570, 126.919533)
+				,level:3
+			};
+		
+		map = new kakao.maps.Map(container,options);
+		
+		markerPosition = new kakao.maps.LatLng(37.55682498709941, 126.91998496896609);
+		
+		marker = new kakao.maps.Marker({
+			
+			position: markerPosition
+			
+		});
+		
+		marker.setMap(map);
+		
+		clickAction();
+	}
+
+	/* 마커 계속 생성 만들기 성공
+	function clickAction()
+	{
+		kakao.maps.event.addListener(map,"click",function(mouseEvent)
+		{
+			var latLng = mouseEvent.latLng;
+			
+			marker = new kakao.maps.Marker({
+				
+				position : latLng
+				
+			});
+			marker.setMap(map);
+			
+		});
+		
+	} */
+	
+	/* 
+	function clickAction()
+	{
+		
+		kakao.maps.event.addListener(map, "click", function(mouseEvent)
+		{
+			var latLng = mouseEvent.latLng;
+			
+			//check~!!
+			// 기존 생성된 마커의 위치를 클릭한 지점으로 이동
+			marker.setPosition(latLng);
+			
+			var result = document.getElementById("result");
+			var message ="클릭한 지점의 위도는 " +latLng.getLat() + " 이고, 경도는 " + latLng.getLng() + " 입니다. <br>";
+			
+			result.innerHTML += message;
+			
+		});
+		
+	} */
+	
+	
+	function removeMarker()
+	{
+		
+		marker.setMap(null);
+		
+	}
+	
+	// 마커 다시 생성 함수
+	/* 
+	function createMarker()
+	{
+		
+		marker.setMap(map);
+	} */
+	
+	function createMarker()
+	{
+		
+		var latLng2 = new kakao.maps.LatLng(37.557291419251065, 126.9236372295092);
+		marker.setPosition(latLng2);
+		
+		marker.setMap(map);
+	}
+
+</script>
+
+</head>
+<body onload="initialize()">
+
+<!-- 지도를 그려낼 div 공간 제작 -->
+<!-- ○ 발급 받은 APP Key -->
+<!-- 083a2bd9d2504e9dde582bbbb8ce730b -->
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556570, 126.919533 -->
+
+<!-- ○ 2번 출구 앞 스타벅스 좌표 -->
+<!-- 37.557291419251065, 126.9236372295092 -->
+<div>
+	<h1>Kakao Map 고정 마커 생성</h1>
+	<hr />
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br />
+
+<p>
+	<button type="button" class="btn" onclick="removeMarker()">마커 제거</button>
+	<button type="button" class="btn" onclick="createMarker()">마커 생성</button>
+</p>
+
+<div id="result"></div>
+
+</body>
+</html>

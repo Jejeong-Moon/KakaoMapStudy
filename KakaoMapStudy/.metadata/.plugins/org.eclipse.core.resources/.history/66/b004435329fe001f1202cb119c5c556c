@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");
+		mapCenter = new kakao.maps.LatLng(37.556570, 126.919533);
+		options =
+			{
+				center: mapCenter
+				,level:3
+			};
+		
+		map = new kakao.maps.Map(container,options);
+		
+		// 마커 옵션 구성 → 길 건너 스타벅스
+		
+		markerPostion = new kakao.maps.LatLng(37.55683402006926, 126.92001891193567);
+		
+		// 마커 생성
+		
+		marker = new kakao.maps.Marker({
+			
+			position : markerPostion
+			
+		});
+		
+		// 생성된 마커가 지도에 표시될 수 있도록 표시
+		
+		marker.setMap(map);
+		
+		//check~!!
+		// 인포윈도우 옵션 구성
+		var iwContent = "<div style='padding:5px'>";
+		iwContent += "스타벅스<br> ";
+		iwContent += "<a href='https://map.kakao.com/link/map/"
+		iwContent += "스타벅스,37.556834,126.920018' style='color:blue;' target='_blank'>큰지도보기</a> "
+		iwContent += "<a href='https://map.kakao.com/link/to/"
+		iwContent += "스타벅스,37.556834,126.920018' style='color:blue;' target='_blank'>길찾기</a> "
+		iwContent += "</div>";
+		
+		// check~!!
+		// 인포윈도우 발생
+		infowindow = new kakao.maps.InfoWindow({
+			
+			position : markerPosition
+			, content : iwContent
+		});
+		
+		// check~!!
+		// 생성된 인포윈도우가 마커에 표시되도록 설정
+		infowindow.open(map,marker);
+		//-- open() 함수를 호출하는 과정에서
+		// 두번째 파라미터(marker)를 생략하여 설정하지 않을 경우
+		// 마커 없이 지도 위에 직접 표시
+		
+	}
+
+</script>
+</head>
+<body onload="initialize()">
+
+
+<!-- 지도를 그려낼 div 공간 제작 -->
+<!-- ○ 발급 받은 APP Key -->
+<!-- 083a2bd9d2504e9dde582bbbb8ce730b -->
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556570, 126.919533 -->
+
+<!-- ○ 2번 출구 앞 스타벅스 좌표 -->
+<!-- 37.557291419251065, 126.9236372295092 -->
+
+<!-- ○ 길 건너 스타벅스 좌표 -->
+<!-- 37.55683402006926, 126.92001891193567 -->
+
+<div>
+	<h1>Kakao Map 인포윈도우 생성</h1>
+	<hr />
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br />
+
+<div id="result"></div>
+
+
+</body>
+</html>

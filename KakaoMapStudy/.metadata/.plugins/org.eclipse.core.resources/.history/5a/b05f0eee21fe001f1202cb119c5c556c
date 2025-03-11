@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body onload="initialize()">
+
+
+<!-- 지도를 그려낼 div 공간 제작 -->
+<!-- ○ 발급 받은 APP Key -->
+<!-- 083a2bd9d2504e9dde582bbbb8ce730b -->
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556570, 126.919533 -->
+
+<!-- ○ 2번 출구 앞 스타벅스 좌표 -->
+<!-- 37.557291419251065, 126.9236372295092 -->
+
+<div>
+	<h1>Kakao Map 이동 가능한 마커 생성</h1>
+	<hr />
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br />
+
+<div id="result"></div>
+
+
+</body>
+</html>
