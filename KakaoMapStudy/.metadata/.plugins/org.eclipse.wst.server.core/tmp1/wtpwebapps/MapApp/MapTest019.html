@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");
+		mapCenter = new kakao.maps.LatLng(37.556570, 126.919533);
+		options =
+			{
+				center: mapCenter
+				,level:3
+			};
+		
+		map = new kakao.maps.Map(container,options);
+		
+		// 다중 마커 객체들을 포함하고 있을 배열
+		markers = [];
+		
+		addMarkers(mapCenter);
+		
+		
+		new kakao.maps.event.addListener(map,"click", function(click)
+		{
+			latlng = click.latLng;
+			addMarkers(latlng);
+		});
+		
+		
+	}
+	
+	
+	function addMarkers(position)
+	{
+		var imgSrc = "imgs/mark.jpg";
+		var imgSize = new kakao.maps.Size(30,59);
+		var markerImage = new kakao.maps.MarkerImage(imgSrc, imgSize);
+		
+		// 마커 생성
+		marker = new kakao.maps.Marker({
+			position: position
+			,image: markerImage
+		});
+		
+		// 생성한 마커가 지도에 표시될 수 있도록 설정
+		marker.setMap(map);
+		
+		// 생성된 마커를 markers 배열에 추가
+		markers.push(marker);
+		
+	}
+	
+	function hideMarkers()
+	{
+		
+		//alert("확인");
+		for (var i = 0; i < markers.length; i++)
+		{
+			markers[i].setMap(null);
+		}
+		
+	}
+	
+	function showMarkers()
+	{
+		for (var i = 0; i < markers.length; i++)
+		{
+			
+			markers[i].setMap(map);
+		}
+	}
+	
+	
+
+</script>
+
+</head>
+<body onload="initialize()">
+
+
+<!-- 지도를 그려낼 div 공간 제작 -->
+<!-- ○ 발급 받은 APP Key -->
+<!-- 083a2bd9d2504e9dde582bbbb8ce730b -->
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556570, 126.919533 -->
+
+<div>
+	<h1>Kakao Map 마커 숨기기/보이기</h1>
+	<hr />
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br />
+
+<p>
+	<button type="button" class="btn" onclick="hideMarkers()">마커 숨기기</button>
+	<button type="button" class="btn" onclick="showMarkers()">마커 보이기</button>
+</p>
+
+<div id="result"></div>
+
+
+</body>
+</html>

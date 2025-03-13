@@ -8,3 +8,9 @@
 3월 11, 2025 11:43:56.67 [8540:8864:0311/114356.679:ERROR:new_tab_page_handler.cc(1306)] NewTabPage loaded into a non-browser-tab context
 3월 11, 2025 12:15:43.59 [8540:8864:0311/121543.599:ERROR:interface_endpoint_client.cc(725)] Message 0 rejected by interface blink.mojom.WidgetHost
 3월 11, 2025 12:30:49.42 [8540:8864:0311/123049.429:ERROR:interface_endpoint_client.cc(725)] Message 0 rejected by interface blink.mojom.WidgetHost
+
+3월 12, 2025 09:13:12.50 NEW SESSION
+3월 12, 2025 09:13:12.50 Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 12, 2025 09:16:09.78 [8284:4092:0312/091609.780:ERROR:service_client.cc(36)] Unexpected on_device_model service disconnect: The device's GPU is not supported.
+3월 12, 2025 09:58:23.90 [8284:4092:0312/095823.901:ERROR:device_event_log_impl.cc(202)] [09:58:23.902] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 12, 2025 10:10:21.57 Created TensorFlow Lite XNNPACK delegate for CPU.

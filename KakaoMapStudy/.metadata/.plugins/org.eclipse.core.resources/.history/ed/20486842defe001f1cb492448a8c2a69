@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=083a2bd9d2504e9dde582bbbb8ce730b"></script>
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");
+		mapCenter = new kakao.maps.LatLng(37.556570, 126.919533);
+		options =
+			{
+				center: mapCenter
+				,level:3
+			};
+		
+		map = new kakao.maps.Map(container,options);
+		
+		// check~!!
+		// 교통 정보 지도타입 표시
+		//map.addOverlayMapTypeId();
+		//map.addOverlayMapTypeId(daum.maps.MapTypeId.TRAFFIC);
+		//map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
+		
+		
+	}
+	
+	// 교통 정보 추가 버튼 클릭 시 호출되는 함수
+	function addTrafficInfo()
+	{
+		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
+	}
+	
+	// 교통 정보 제거 버튼 클릭 시 호출되는 함수
+	function removeTrafficInfo()
+	{
+		map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
+	}
+	
+	
+</script>
+</head>
+<body onload="initialize()">
+
+
+<!-- 지도를 그려낼 div 공간 제작 -->
+<!-- ○ 발급 받은 APP Key -->
+<!-- 083a2bd9d2504e9dde582bbbb8ce730b -->
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556570, 126.919533 -->
+
+<div>
+	<h1>Kakao Map 로드뷰 표시 </h1>
+	<hr />
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br />
+
+<p>
+	<button type="button" class="btn" onclick="addTrafficInfo()">교통 정보 추가</button>
+	<button type="button" class="btn" onclick="removeTrafficInfo()">교통 정보 제거</button>
+</p>
+
+
+
+</body>
+</html>
